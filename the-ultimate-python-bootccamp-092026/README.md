@@ -1,7 +1,7 @@
 # The Ultimate Python Bootcamp
 
 This folder contains my notes, exercises, experiments, and other practice code
-from the **The Ultimate Python Bootcamp** online course.
+from **The Ultimate Python Bootcamp** online course.
 
 ## Course workspace
 
@@ -14,9 +14,35 @@ The course workspace currently contains:
 - `resources.txt` for links and other supporting course material.
 
 The course work is intentionally incremental. New lessons and exercises should
-be added under `src/` using descriptive filenames, while course-specific links,
-setup notes, and other references should be added to the appropriate supporting
-file in this folder.
+be added under `src/` using descriptive, lesson-oriented filenames, while
+course-specific links, setup notes, and other references should be added to the
+appropriate supporting file in this folder. |
+
+### Concepts covered so far
+
+- **Strings:** Strings support indexing and slicing, but string methods return
+  transformed values because strings cannot be changed in place. The exercise
+  also compares formatting, search, classification, and case-related methods.
+- **Lists:** Lists are ordered and mutable. The exercise contrasts slicing and
+  list-building expressions with methods such as `insert()`, `pop()`,
+  `append()`, `remove()`, `extend()`, and `clear()`.
+- **Tuples:** Tuples are ordered collections that support indexing and slicing.
+  The current exercise focuses on reading and deriving values from a tuple.
+- **Sets:** Sets store unique values and support mathematical operations such as
+  union, intersection, difference, and symmetric difference. They also support
+  relationship checks including subset, superset, equality, and disjointness.
+- **Frozensets:** Frozensets provide the set operations shown above while being
+  immutable. The current exercise therefore focuses on operations that produce
+  values rather than mutating methods.
+- **Dictionaries:** Dictionaries map keys to values. The exercise covers both
+  direct access and the safer `get()` method with fallback values, followed by
+  common update and removal operations.
+- **Object identity:** Several exercises print `id()` values to make it easier
+  to observe whether an operation creates a new object or changes an existing
+  one.
+- **Boolean and numeric values in collections:** The examples intentionally use
+  mixed values such as integers, floats, booleans, strings, and `None` to
+  explore how Python represents common built-in data types together.
 
 ## Folder structure
 
@@ -27,13 +53,21 @@ the-ultimate-python-bootccamp-092026/
 ├── resources.txt
 ├── src/
 │   ├── 01_version_check.py
-│   └── 01_zen_of_python.py
+│   ├── 01_zen_of_python.py
+│   ├── 02_dictionary_operations.py
+│   ├── 02_frozensets.py
+│   ├── 02_list_operations.py
+│   ├── 02_mutability.py
+│   ├── 02_set_operations.py
+│   ├── 02_string_operations.py
+│   └── 02_tuple_operations.py
 └── .venv/                 # Local virtual environment; generated, not source
 ```
 
-The course folder name is kept as created in the repository. The numeric suffix (Timestamp when the course was started in MMYYYY format)
-helps distinguish this course workspace from future course folders and other
-passes through the material.
+The course folder name is kept as created in the repository. The numeric suffix
+is a timestamp identifying when this course workspace was started, using the
+`MMYYYY` format. It helps distinguish this workspace from future course folders
+and other passes through the material.
 
 ## Getting started
 
@@ -74,16 +108,21 @@ python src/01_zen_of_python.py
 
 The first command reports the interpreter being used. This is a useful quick
 check when returning to the course after switching Python installations or
-recreating the virtual environment.
+recreating the virtual environment. The remaining commands print examples and
+observations for the corresponding Python data type or language concept.
 
-## Course resources
+To run every exercise in the current workspace from Linux or macOS:
 
-The current external course resource is recorded in [`resources.txt`](resources.txt):
+```bash
+for exercise in src/*.py; do
+  python "$exercise"
+done
+```
 
-- [Course whiteboard](https://app.eraser.io/workspace/xltiZYV3fLYZuUEtfUal)
-
-Additional links should be added to `resources.txt` rather than mixed into the
-exercise files.
+The output order from set and frozenset examples can vary because these
+collections are unordered. The exact object IDs also vary between runs and
+Python processes; they are included to illustrate identity, not as fixed
+expected values.
 
 ## Working conventions
 
@@ -91,6 +130,7 @@ exercise files.
 - Place runnable Python exercises in `src/`.
 - Use numbered filenames when the order of the lessons or exercises matters.
 - Keep each exercise focused on the concept being practiced.
+- Add every new exercise to the current progress table and folder tree.
 - Add a short explanation here when a new group of exercises introduces an
   important Python concept.
 - Add third-party packages to `requirements.txt` as the course begins to use
